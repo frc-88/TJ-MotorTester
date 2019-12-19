@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.DriveMotor;
+import frc.robot.subsystems.TestMotor;
 import frc.robot.subsystems.ExampleSubsystem;
 
 /**
@@ -27,6 +28,7 @@ public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
   public static DriveMotor m_driveMotor = new DriveMotor();
+  public static TestMotor m_testMotor = new TestMotor();
 
 
   Command m_autonomousCommand;
@@ -55,6 +57,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     m_driveMotor.updateDashboard();
+    m_testMotor.updateDashboard();
   }
 
   /**
