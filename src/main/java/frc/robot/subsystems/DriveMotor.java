@@ -7,8 +7,8 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -22,19 +22,19 @@ public class DriveMotor extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  TalonSRX driveMotor;
+  CANSparkMax driveMotor;
 
  public DriveMotor() {
-    driveMotor = new TalonSRX(RobotMap.driveMotorNumber);
+    driveMotor = new CANSparkMax(RobotMap.driveMotorNumber, MotorType.kBrushless);
  } 
 
  public void set(double power){
-  driveMotor.set(ControlMode.PercentOutput, power);
+  driveMotor.set(power);
  }
 
  public void updateDashboard(){
   SmartDashboard.putNumber("Drive Motor Current", driveMotor.getOutputCurrent());
-  SmartDashboard.putNumber("Drive Motor Voltage", driveMotor.getMotorOutputVoltage());
+  SmartDashboard.putNumber("Drive Motor Bus Voltage", driveMotor.getBusVoltage());
  }
  
   @Override
