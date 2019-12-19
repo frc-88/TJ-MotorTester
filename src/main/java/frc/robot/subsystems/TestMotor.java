@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -25,6 +26,7 @@ public class TestMotor extends Subsystem {
 
  public TestMotor() {
     testMotor = new TalonSRX(RobotMap.driveMotorNumber);
+    testMotor.setNeutralMode(NeutralMode.Brake);
  } 
 
  public void updateDashboard(){
