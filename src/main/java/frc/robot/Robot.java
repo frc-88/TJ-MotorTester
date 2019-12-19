@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.RunDriveMotor;
 import frc.robot.subsystems.DriveMotor;
 import frc.robot.subsystems.TestMotor;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -44,6 +45,10 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
+    SmartDashboard.putData("Short Test 1", new RunDriveMotor(1, 0.25));
+    SmartDashboard.putData("Short Test 2", new RunDriveMotor(1, 1.0));
+    SmartDashboard.putData("Long Test 1", new RunDriveMotor(5, 0.25));
+    SmartDashboard.putData("Long Test 2", new RunDriveMotor(5, 1.0));
   }
 
   /**
@@ -119,6 +124,8 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    //Command startup = new RunDriveMotor(1, 0.25);
+    //startup.start();
   }
 
   /**
