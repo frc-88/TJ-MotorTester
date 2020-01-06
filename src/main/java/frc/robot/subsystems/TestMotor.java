@@ -25,7 +25,7 @@ public class TestMotor extends Subsystem {
   TalonSRX testMotor;
 
  public TestMotor() {
-    testMotor = new TalonSRX(RobotMap.driveMotorNumber);
+    testMotor = new TalonSRX(RobotMap.testMotorNumber);
     testMotor.setNeutralMode(NeutralMode.Brake);
  } 
 
